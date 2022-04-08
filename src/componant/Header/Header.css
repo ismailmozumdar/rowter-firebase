@@ -1,0 +1,11 @@
+.Header nav a{
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight:bold
+}
+.Header nav a:hover{
+    color:blueviolet
+}
+.Header nav .active{
+    color:red;
+}
