@@ -1,6 +1,8 @@
 .Header nav a{
     text-decoration: none;
-    margin-right: 20px;
+    margin-right: 10px;
+    padding-left:10px;
+    padding-right:10px;
     font-weight:bold
 }
 .Header nav a:hover{
@@ -8,4 +10,5 @@
 }
 .Header nav .active{
     color:red;
+    border-bottom: 2px solid red;
 }
