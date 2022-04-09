@@ -22,7 +22,7 @@ const useFirebase = () => {
   }
   const handelSinOut = () => {
     signOut(auth)
-    .then( () =>{})
+      .then(() => { })
   }
 
   useEffect(() => {

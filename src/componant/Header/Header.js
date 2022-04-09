@@ -1,28 +1,32 @@
+import { getAuth} from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebase';
+import app from '../../firebase.init';
 import './Header.css'
-
+const auth = getAuth(app)
 const Header = () => {
-    const { user, handelSinOut } = useFirebase();
+    const [user] = useAuthState(auth)
     return (
         <div className="Header">
             <nav>
                 <NavLink to='/'>Home</NavLink>
-                <NavLink to='/Products'>Products</NavLink>
-                <NavLink to='/Orderes'>Orderes</NavLink>
-                <NavLink to='/Reviews'>Reviews</NavLink>
-                <span>{user?.displayName && user.displayName}</span>
+                <NavLink to='/products'>Products</NavLink>
+                <NavLink to='/ordere'>Ordere</NavLink>
+                <NavLink to='/reviews'>Reviews</NavLink>
                 {
                     user?.uid
                         ?
-                        <button onClick={handelSinOut}>sin Out</button>
+                        <>
+                            <NavLink to='/profile'>Profile</NavLink>
+                        </>
+
                         :
-                <>
-                            
-                            <NavLink to='/Rigester'>Rigester</NavLink>
-                            <NavLink to='/Login'>Log In</NavLink>
-                </>
+                        <>
+
+                            <NavLink to='/rigester'>Rigester</NavLink>
+                            <NavLink to='/login'>Log In</NavLink>
+                        </>
                 }
             </nav>
         </div>
